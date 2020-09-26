@@ -60,7 +60,7 @@ Template("myTable.csv", // specifiy the name of the csv table
         ,
     
          newImage("cross", row.Filename)    // present the first cross image used in the line judgement task 
-             .print("center at 50%", "center at 50%")    //(row.Filename specifies the filename in your csv table)
+            .print("center at 50%", "center at 50%")    //(row.Filename specifies the filename in your csv table)
             
         ,
     
@@ -70,30 +70,30 @@ Template("myTable.csv", // specifiy the name of the csv table
         ,
     
         getImage("cross")   // remove the cross image
-             .remove()
+            .remove()
         ,
     
         newImage("mask", "mask.png")    // present a mask after the cross
             .print("center at 50%", "center at 50%")
-    ,
+        ,
    
-         newTimer(100)  // present the mask for 100ms
+        newTimer(100)  // present the mask for 100ms
             .start()
             .wait()
-    ,
+        ,
         getImage("mask")    // remove the mask
             .remove()
-    ,
+        ,
     
-    newText("Please respond. <p> F - horizontal is longer, J - vertical is longer </p>")   // ask participants to respond every trial after the mask 
-        .css("font-size", "20px")
-        .center()
-        .print()
+        newText("Please respond. <p> F - horizontal is longer, J - vertical is longer </p>")   // ask participants to respond every trial after the mask 
+            .css("font-size", "20px")
+            .center()
+            .print()
     
-    ,
-    newKey("FJ")    // create "F" and "J" as keys for responding
-        .wait()
-        .log()  // use log to keep track of the response
+        ,
+        newKey("FJ")    // create "F" and "J" as keys for responding
+            .wait()
+            .log()  // use log to keep track of the response
 
     )
     .setOption("hideProgressBar", true)
@@ -108,10 +108,10 @@ newTrial("followup",
         .print()
     ,
     newScale("notice",  "yes", "<p>no<p/>")
-         .css("font-size", "20px")
+        .css("font-size", "20px")
         .center()
-         .print()
-         .log()  // use log to keep track of the response
+        .print()
+        .log()  // use log to keep track of the response
     ,
     
      newText("If so, what's the shape of the thing you noticed?")
@@ -120,17 +120,17 @@ newTrial("followup",
         .print()
     ,
     newScale("shape",  "square", "<p>circle<p/>", "<p>I don't know!<p/>")
-         .css("font-size", "20px")
-         .center()
-         .print()
-         .log()  // use log to keep track of the response
+        .css("font-size", "20px")
+        .center()
+        .print()
+        .log()  // use log to keep track of the response
     ,
     
     newButton("click to finish")    // create a button element 
         .css("font-size", "15px")
         .center()
-         .print("center at 50%", "center at 50%")
-         .wait()
+        .print("center at 50%", "center at 50%")
+        .wait()
    
     ).setOption("hideProgressBar", true)
 
@@ -138,15 +138,20 @@ newTrial("followup",
 
 newTrial( "bye" ,
     newText("Thank you for your participation!")    // create a thank you screen
-        .print(),
-        
+        .print()
+        ,
     newButton()
         .wait()  // Wait for a click on a non-displayed button = wait here forever
-)
+    )
     .setOption("hideProgressBar", true)
     
     
 DebugOff() // turn off the debugger (ONLY USE THIS LINE WHEN YOU'RE READY TO PUBLISH YOUR STUDY!)
 
 
+// OTHER NOTES:
 // Spaces and linebreaks don't matter to the script: we've only been using them for the sake of readability
+
+// the csv file contains two columns: Type and Filename
+// "Type" specifies whether the trial is a line judgement task (easy or difficult) or a critical trial (that contains the unexpected stim)
+// "Filename" contains the exact filenames of the image stimuli to be used in your experiment (uploaded in the Resources folder already)
