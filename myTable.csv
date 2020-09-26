@@ -1,0 +1,9 @@
+Type,Filename
+easy,cross1.png
+easy,cross2.png
+hard,cross3.png
+hard,cross4.png
+critical,critical.png
+// the csv file contains two columns: Type and Filename
+// "Type" specifies whether the trial is a line judgement task (easy or difficult) or a critical trial (that contains the unexpected stim)
+// "Filename" contains the exact filenames of the image stimuli to be used in your experiment (uploaded in the Resources folder already)
